@@ -104,7 +104,7 @@ Currently focusing on:
 - 💬 **Telegram**: [@ChainFlexBot](https://t.me/ChainFlexBot) – Try the live demo
 - 🌐 **Live Mini-App**: Verified wallet addresses integrated above
 - 💼 **LinkedIn**: [Connect with me](#)
-- 🐦 **Twitter**: [@devops2626](#)
+- 🐦 **X**: [@skyperx](https://x.com/skyperx)
 
 ---
 
