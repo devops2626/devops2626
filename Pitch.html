@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChainFlex Investor Pitch | Multi‑Network Wallet & Swap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef2f5;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            padding: 40px 24px;
+            color: #1a2c3e;
+        }
+
+        /* Pitch card container */
+        .pitch-card {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+            overflow: hidden;
+            padding: 40px 48px;
+            transition: all 0.2s;
+        }
+
+        @media (max-width: 750px) {
+            .pitch-card {
+                padding: 24px 20px;
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1E3C72, #2A5298);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #4a627a;
+            border-left: 4px solid #2A5298;
+            padding-left: 1rem;
+            margin: 0.75rem 0 2rem 0;
+        }
+
+        .conf-badge {
+            background: #fef3c7;
+            color: #b45309;
+            padding: 6px 12px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin: 32px 0;
+        }
+
+        .section {
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 20px 24px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            border: 1px solid #e4e9f0;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .address-row {
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #dce3ec;
+            padding-bottom: 16px;
+        }
+
+        .address-row:last-child {
+            border-bottom: none;
+        }
+
+        .asset-label {
+            font-weight: 700;
+            font-size: 1rem;
+            background: #e9edf2;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .address-field {
+            width: 100%;
+            padding: 12px 14px;
+            font-family: 'SF Mono', 'Menlo', monospace;
+            font-size: 0.85rem;
+            background: white;
+            border: 1px solid #cad2db;
+            border-radius: 16px;
+            margin: 8px 0;
+            transition: 0.1s;
+        }
+
+        .address-field:focus {
+            border-color: #2A5298;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(42,82,152,0.2);
+        }
+
+        .inline-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.8rem;
+            color: #2c3e50;
+            margin-top: 6px;
+        }
+
+        .rate-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .rate-table th, .rate-table td {
+            text-align: left;
+            padding: 10px 6px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .rate-table th {
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+
+        .input-small {
+            width: 110px;
+            padding: 6px 8px;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            font-family: monospace;
+            background: white;
+        }
+
+        .warning-note {
+            background: #fff8e7;
+            border-left: 4px solid #e67e22;
+            padding: 14px 20px;
+            margin: 28px 0 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .footer-invest {
+            background: #1e293b;
+            color: white;
+            border-radius: 24px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        button {
+            background: #2A5298;
+            border: none;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        button:hover {
+            background: #1e3a6f;
+        }
+
+        .print-hint {
+            text-align: right;
+            margin-top: 20px;
+            font-size: 0.7rem;
+            color: #6c86a3;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            .pitch-card {
+                box-shadow: none;
+                padding: 0.5in;
+                max-width: 100%;
+            }
+            .address-field {
+                border: 1px solid #ccc;
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            button, .print-hint button {
+                display: none;
+            }
+            .conf-badge {
+                background: #fef3c7;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="pitch-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <div>
+            <h1>ChainFlex</h1>
+            <div style="font-size: 0.9rem; color: #2c5282;">Multi‑Network Wallet & Swap Mini‑App</div>
+        </div>
+        <div class="conf-badge">🔒 Confidential – Investor Draft</div>
+    </div>
+    <div class="tagline">One unified interface · 8+ chains · Instant swaps (USDC→USDT, BTC/ETH/SOL→TON)</div>
+
+    <!-- 2 column layout: left = deposit addresses, right = swap rates -->
+    <div class="grid-2col">
+        <!-- LEFT: RECEIVE ADDRESSES (editable) -->
+        <div class="section">
+            <div class="section-title">📥 Deposit addresses <span style="font-size:0.7rem; font-weight:normal;">(editable fields)</span></div>
+            
+            <div class="address-row">
+                <div class="asset-label">⚫ TON (TON Network)</div>
+                <input class="address-field" type="text" value="UQBs0WrLEa4KA9dKaeIUBrV1fQo_bbZ4oLJnA9dNyUfEZaxK">
+                <div class="inline-details"><span>Min deposit: 0.001 TON</span><span>Est. arrival: ≤1 min</span></div>
+            </div>
+
+            <div class="address-row">
+                <div class="asset-label">💵 USDT (Tron TRC20)</div>
+                <input class="address-field" type="text" value="TS9LzyHik32M3hNkVrFbKTecPKkmx69nRv">
+                <div class="inline-details"><span>Min 0.003 USDT</span><span>Network: Tron</span></div>
+            </div>
+
+            <div class="address-row">
+                <div class="asset-label">💵 USDT (Ethereum ERC20)</div>
+                <input class="address-field" type="text" value="0x64DD5a411aD1e1982eb0d1E033e8Fa585E063Eeb">
+                <div class="inline-details"><span>Min 0.003 USDT</span><span>ERC20</span></div>
+            </div>
+
+            <div class="address-row">
+                <div class="asset-label">💵 USDT (Solana)</div>
+                <input class="address-field" type="text" value="GTBc1n7L51QfiRnMR4yfbcfj1rY8RpJfwYYVbozYX8eot">
+                <div class="inline-details"><span>Min 0.001278 USDT</span><span>Solana</span></div>
+            </div>
+
+            <div class="address-row">
+                <div class="asset-label">🔄 USDC → USDT (Ethereum)</div>
+                <input class="address-field" type="text" value="0x64DD5a411aD1e1982eb0d1E033e8Fa585E063Eeb">
+                <div class="inline-details"><span>Rate 1:1 · Min 0.01 USDC</span></div>
+            </div>
+
+            <div class="address-row">
+                <div class="asset-label">🔄 USDC → USDT (Solana)</div>
+                <input class="address-field" type="text" value="GTBc1n7L51QfiRnMR4yfbcfj1rY8RpJfwYYVbozYX8eot">
+                <div class="inline-details"><span>Rate 1:1 · Min 0.01 USDC</span></div>
+            </div>
+
+            <div class="address-row">
+                <div class="asset-label">₿ BTC → TON (one‑time address)</div>
+                <input class="address-field" type="text" value="bc1qu6ays8wjrvefnu8xg53rktq3n8v7xgtqkh1sa7">
+                <div class="inline-details"><span>Min 0.0003 BTC · Max 3.0496 BTC</span></div>
+            </div>
+
+            <div class="address-row">
+                <div class="asset-label">⟠ ETH → TON (one‑time address)</div>
+                <input class="address-field" type="text" value="0x094872792afe1346bb39ba129572541d2b5a32c2">
+                <div class="inline-details"><span>Min 0.0051 ETH · Max 114.1943 ETH</span></div>
+            </div>
+
+            <div class="address-row">
+                <div class="asset-label">◎ SOL → TON (one‑time address)</div>
+                <input class="address-field" type="text" value="krjYnXLaoebpwY8ANBJLdgmP91GJdWbiW2PnE3kxdXp">
+                <div class="inline-details"><span>Min 0.12 SOL · Max 2,964.03 SOL</span></div>
+            </div>
+
+            <div class="address-row">
+                <div class="asset-label">🟡 BNB (BNB Smart Chain)</div>
+                <input class="address-field" type="text" value="0xB2CFF6A8836d6d8522283187e50195d3ac682b9b">
+                <div class="inline-details"><span>BSC network · only send BNB</span></div>
+            </div>
+
+            <div class="address-row">
+                <div class="asset-label">◉ SOL native (Solana)</div>
+                <input class="address-field" type="text" value="5mbdUW7KpgSzcfwevEHWezFypSGmm6CdbZWY4TDYArYg">
+                <div class="inline-details"><span>Receive SOL directly</span></div>
+            </div>
+        </div>
+
+        <!-- RIGHT: SWAP RATES & INVESTOR TERMS (editable fields) -->
+        <div class="section">
+            <div class="section-title">🔄 Swap rates & limits <span style="font-size:0.7rem;">(live / editable)</span></div>
+            <table class="rate-table">
+                <thead>
+                <tr><th>Pair</th><th>Rate</th><th>Min deposit</th><th>Max deposit</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>USDC (ERC20) → USDT</td><td><input class="input-small" value="1 USDC ≈ 1 USDT"></td><td><input class="input-small" value="0.01 USDC"></td><td>∞</td></tr>
+                    <tr><td>USDC (Solana) → USDT</td><td><input class="input-small" value="1 USDC ≈ 1 USDT"></td><td><input class="input-small" value="0.01 USDC"></td><td>∞</td></tr>
+                    <tr><td>BTC → TON</td><td><input class="input-small" value="1 BTC ≈ 36,112.22 TON"></td><td><input class="input-small" value="0.0003 BTC"></td><td><input class="input-small" value="3.0496 BTC"></td></tr>
+                    <tr><td>ETH → TON</td><td><input class="input-small" value="1 ETH ≈ 965.50 TON"></td><td><input class="input-small" value="0.0051 ETH"></td><td><input class="input-small" value="114.1943 ETH"></td></tr>
+                    <tr><td>SOL → TON</td><td><input class="input-small" value="1 SOL ≈ 37.996 TON"></td><td><input class="input-small" value="0.12 SOL"></td><td><input class="input-small" value="2,964.0318 SOL"></td></tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 28px;">
+                <div class="section-title" style="margin-top: 0;">💰 Investment opportunity</div>
+                <div><label style="font-weight:600;">Raise target:</label> <input class="address-field" style="width: 200px;" value="$500,000"></div>
+                <div style="margin-top: 12px;"><label style="font-weight:600;">Use of funds:</label> <input class="address-field" value="Smart contract audits, UI/UX, compliance, multi-chain expansion (Avalanche, Polygon, Base)"></div>
+                <div style="margin-top: 12px;"><label style="font-weight:600;">Equity / token allocation:</label> <input class="address-field" value="Negotiable (equity or utility tokens)"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Important notes and risk disclosure (uneditable but clear) -->
+    <div class="warning-note">
+        ⚠️ <strong>Important to know</strong><br>
+        • One‑time addresses for BTC→TON, ETH→TON, SOL→TON – future transfers to those exact addresses will be lost.<br>
+        • Sending NFTs or unsupported tokens results in permanent loss.<br>
+        • Deposits from sanctioned exchanges may be frozen.<br>
+        • Always verify full address – we cannot recover incorrect sends.<br>
+        • No memo required for any network.
+    </div>
+
+    <div class="footer-invest">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+            <div><strong>📬 Contact & next steps</strong><br>invest@chainflex.io  |  Demo: <span style="font-family: monospace;">@ChainFlexBot</span> (Telegram)</div>
+            <div><strong>🚀 Live mini‑app</strong><br>Verified wallet addresses as shown above</div>
+        </div>
+    </div>
+
+    <div class="print-hint">
+        <button onclick="window.print();">🖨️ Print / Save as PDF (edits will appear in PDF)</button>
+        <span style="margin-left: 16px;">✏️ All white fields are editable — change rates, addresses or raise amount before printing.</span>
+    </div>
+</div>
+
+<script>
+    // Optional: any client-side improvements
+    console.log("Editable pitch ready - print to PDF retains current values");
+</script>
+</body>
+</html>
