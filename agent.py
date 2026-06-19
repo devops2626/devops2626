@@ -12,10 +12,11 @@ def read_documentation(filename="README.md"):
 
 def run_agent(input_text):
     print(f"Agent: Analyzing '{input_text}'...")
-    if "status" in input_text:
+    text = input_text.lower()
+    if "status" in text:
         args = input_text.split()[-1]
         result = get_customer_status(args)
-    elif "read" in input_text:
+    elif "read" in text:
         result = read_documentation()
     else:
         result = "Command not recognized."
