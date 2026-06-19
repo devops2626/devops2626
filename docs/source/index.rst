@@ -9,3 +9,4 @@ Welcome to devops2626's documentation!
    usage
    api
    spec-kit
+   changelog
