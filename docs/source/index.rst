@@ -12,3 +12,4 @@ Welcome to devops2626's documentation!
    changelog
    contributing
    business-ai
+   about
