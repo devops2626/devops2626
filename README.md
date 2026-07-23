@@ -8,7 +8,12 @@ cat > ~/devops2626/README.md << 'EOF'
 Building an open-source AI-powered developer platform from an iPhone.
 
 ## 🔥 Active Projects
+### 🤖 AI Hacking Simulator (Educational)
+> A sandboxed simulation demonstrating how AI agents chain zero-day exploits in complex attack flows.
 
+* **Security Analysis:** Built to research AI-driven exploit chaining and defensive countermeasures.
+* **Tooling & SAST:** Integrates static analysis with Semgrep and CodeQL for custom rule detection and vulnerability scanning.
+* **Tech Stack:** Python, Flask, Shell, Docker, and Makefile automation.
 | Project | What it does |
 |---------|-------------|
 | [trae-agent](https://github.com/devops2626/trae-agent) | AI coding agent |
