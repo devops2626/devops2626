@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TENK — honest paths to $10k/month profit</title>
+  <meta name="description" content="Match your hours, capital, and skills to online businesses whose unit economics can actually net $10k+ a month." />
+  <meta name="theme-color" content="#0b0d0c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0d0c;
+      --bg2: #111513;
+      --surface: #171c19;
+      --fg: #eef2ee;
+      --muted: #8d968f;
+      --faint: #5c645e;
+      --primary: #c6f25a;
+      --primary-fg: #12160f;
+      --copper: #d4a06a;
+      --border: #2a322e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      background: radial-gradient(1200px 500px at 10% -10%, rgba(198,242,90,.06), transparent 55%), var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+    }
+    h1, h2, h3 { font-family: Fraunces, Georgia, serif; text-wrap: balance; }
+    p { text-wrap: pretty; }
+    a { color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    header {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(11,13,12,.82);
+      border-bottom: 1px solid var(--border);
+    }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .mark {
+      width: 32px; height: 32px; display: grid; place-items: center;
+      background: var(--primary); color: var(--primary-fg);
+      border-radius: 4px; font-family: Fraunces, serif; font-weight: 600; font-size: 13px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand span { font-family: Fraunces, serif; font-size: 18px; }
+    nav { display: flex; gap: 4px; font-size: 14px; color: var(--muted); }
+    nav a { padding: 8px 12px; border-radius: 8px; text-decoration: none; }
+    .hero { padding: 56px 0 40px; }
+    .eyebrow {
+      display: inline-flex; gap: 8px; align-items: center;
+      border: 1px solid rgba(212,160,106,.35); color: var(--copper);
+      font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 999px; background: var(--surface);
+    }
+    h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); line-height: 1.05; letter-spacing: -.02em; max-width: 16ch; margin-top: 16px; }
+    h1 em { color: var(--primary); font-style: normal; }
+    .lede { max-width: 42rem; color: var(--muted); font-size: 1.05rem; line-height: 1.6; margin-top: 18px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 48px; padding: 0 20px; border-radius: 12px; font-size: 14px; font-weight: 500;
+      text-decoration: none;
+    }
+    .btn-p { background: var(--primary); color: var(--primary-fg); }
+    .btn-g { box-shadow: 0 0 0 1px rgba(255,255,255,.1); }
+    .facts { display: grid; gap: 12px; margin-top: 40px; }
+    @media (min-width: 720px) { .facts { grid-template-columns: repeat(3, 1fr); } }
+    .card {
+      background: var(--surface);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.07);
+      border-radius: 14px; padding: 16px;
+    }
+    .k { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+    .facts p { color: var(--muted); font-size: 14px; margin-top: 8px; line-height: 1.5; }
+    section { margin: 28px 0 48px; }
+    h2 { font-size: 1.7rem; letter-spacing: -.02em; }
+    .sub { color: var(--muted); font-size: 14px; margin-top: 6px; }
+    fieldset { border: 0; margin: 18px 0; }
+    legend { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); margin-bottom: 8px; }
+    .chips { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    @media (min-width: 720px) { .chips { grid-template-columns: repeat(4, 1fr); } }
+    .chip {
+      min-height: 56px; text-align: left; padding: 10px 12px; border-radius: 10px;
+      background: var(--bg2); box-shadow: 0 0 0 1px rgba(255,255,255,.07);
+    }
+    .chip.on { background: var(--primary); color: var(--primary-fg); box-shadow: none; }
+    .chip b { display: block; font-size: 13px; font-weight: 500; }
+    .chip i { display: block; font-style: normal; font-size: 11px; opacity: .7; margin-top: 2px; }
+    .grid { display: grid; gap: 12px; }
+    @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .idea { display: flex; flex-direction: column; padding: 18px; }
+    .idea h3 { font-size: 1.25rem; margin-top: 6px; }
+    .meta { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+    .idea p { color: var(--muted); font-size: 14px; line-height: 1.5; margin: 10px 0 14px; flex: 1; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 12px; margin-bottom: 12px; }
+    .stats div { background: var(--bg2); padding: 8px; border-radius: 8px; }
+    .stats span { display: block; color: var(--faint); font-size: 11px; }
+    .bar { display: flex; align-items: center; gap: 8px; }
+    .bar i { flex: 1; height: 6px; background: var(--bg); border-radius: 99px; overflow: hidden; display: block; }
+    .bar i b { display: block; height: 100%; background: var(--primary); }
+    .bar em { font-style: normal; font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--primary); width: 28px; text-align: right; }
+    .warn { color: var(--copper); font-size: 12px; margin-top: 10px; }
+    .open {
+      margin-top: 14px; height: 44px; border-radius: 10px; background: var(--bg2); font-size: 14px; font-weight: 500;
+    }
+    .open:hover { background: var(--primary); color: var(--primary-fg); }
+    dialog {
+      width: min(920px, calc(100vw - 24px));
+      max-height: calc(100vh - 24px);
+      border: 0; border-radius: 18px; background: var(--bg2); color: var(--fg);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 30px 80px rgba(0,0,0,.5);
+      padding: 0;
+    }
+    dialog::backdrop { background: rgba(0,0,0,.65); }
+    .dlg { padding: 22px; overflow: auto; max-height: calc(100vh - 24px); }
+    .dlg h2 { font-size: 2rem; margin-top: 8px; }
+    .row { display: grid; gap: 16px; margin-top: 20px; }
+    @media (min-width: 800px) { .row { grid-template-columns: 1.1fr .9fr; } }
+    ol { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+    ol li { display: grid; grid-template-columns: 4.2rem 1fr; gap: 10px; background: var(--surface); padding: 12px; border-radius: 10px; }
+    ol .w { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--primary); }
+    .math { background: var(--surface); padding: 16px; border-radius: 14px; }
+    label.sl { display: block; margin: 14px 0; }
+    label.sl .t { display: flex; justify-content: space-between; font-size: 12px; color: var(--faint); margin-bottom: 6px; }
+    input[type=range] { width: 100%; accent-color: var(--primary); height: 36px; }
+    .nums { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 12px; }
+    .nums div { background: var(--bg); padding: 10px; border-radius: 10px; }
+    .nums .hit { background: var(--primary); color: var(--primary-fg); }
+    .honest li { border-left: 2px solid rgba(212,160,106,.5); padding-left: 10px; color: var(--muted); font-size: 14px; margin: 8px 0; list-style: none; }
+    footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--faint); font-size: 12px; }
+    .close { float: right; height: 40px; padding: 0 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="#top"><span class="mark">10</span><span>TENK</span></a>
+      <nav>
+        <a href="#match">Match</a>
+        <a href="#catalog">All 10</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top" class="wrap">
+    <div class="hero">
+      <p class="eyebrow">The search, answered honestly</p>
+      <h1>Online businesses that can actually net <em>$10k+ a month</em></h1>
+      <p class="lede">Not a list of “passive” gigs. A matcher: your hours, capital, skill, and appetite for selling against ten models whose unit economics add up — and a calculator that shows when they don’t.</p>
+      <div class="cta">
+        <a class="btn btn-p" href="#match">Rank my paths</a>
+        <a class="btn btn-g" href="#catalog">Skip to the ten</a>
+      </div>
+      <div class="facts">
+        <div class="card"><div class="k">Profit, not revenue</div><p>E-com at $10k profit often needs $50k+ in sales. We show contribution margin, not vanity GMVs.</p></div>
+        <div class="card"><div class="k">Time-to-cash</div><p>Need money in 30 days? That’s a service. A newsletter or SaaS is a 12-month asset.</p></div>
+        <div class="card"><div class="k">No magic buttons</div><p>If a thumbnail promised this with no skill, no ads, and no audience, it was selling the thumbnail.</p></div>
+      </div>
+    </div>
+
+    <section id="match" class="card" style="padding:22px">
+      <h2>Your constraints</h2>
+      <p class="sub">Rankings change with hours, capital, skill, and whether you will sell. Be honest — the model is.</p>
+      <div id="controls"></div>
+    </section>
+
+    <section id="catalog">
+      <h2>Ranked for you</h2>
+      <p class="sub" id="best"></p>
+      <div class="grid" id="grid"></div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">TENK is a planning tool. Not financial advice. $10k/mo profit is a real business, not a weekend trick. · devops2626</div>
+  </footer>
+
+  <dialog id="dlg"></dialog>
+
+  <script>
+    const HOURS = { "5":5, "15":15, "30":30, "50":50 };
+    const CAP = { "500":500, "2k":2000, "10k":10000, "50k":50000 };
+    const profile = { hours:"15", capital:"500", skill:"none", sell:"ok", timeline:"90d" };
+
+    const OPTIONS = {
+      hours: [["5","5 hrs / week","Nights only"],["15","15 hrs / week","Serious side"],["30","30 hrs / week","Near full-time"],["50","50 hrs / week","All in"]],
+      capital: [["500","Under $500","Sweat only"],["2k","$2,000","Tools + ads test"],["10k","$10,000","Runway for ads"],["50k","$50,000+","Inventory / hire"]],
+      skill: [["sales","Selling","Calls, close, outreach"],["writing","Writing","Copy, content, email"],["design","Design","UI, brand, Figma"],["code","Code","Build products"],["ops","Ops / numbers","Process, books, systems"],["none","No specialty yet","Start with a service"]],
+      sell: [["hate","I hate selling","Need inbound or product"],["ok","I can sell if I must","Scripts help"],["like","I like the hunt","Outreach is fine"]],
+      timeline: [["30d","Need cash in 30 days","Service first"],["90d","90-day sprint","Productize"],["12m","12-month build","Asset / SaaS"]],
+    };
+
+    const IDEAS = [
+      {id:"agency",name:"Specialist agency",category:"Service",oneLiner:"Sell one narrow result on retainer. Four to five clients is the whole business.",timeToCash:"2–4 weeks",monthsTo10k:"2–6 months",capitalLabel:"$0–500",marginPct:82,risk:"medium",skills:["sales","writing","code","ops"],hoursMin:15,capitalMin:0,sellNeed:"ok",speed:"fast",
+        unit:{offer:"Monthly retainer (ads, SEO, email, or AI ops)",price:2800,units:5,cogsPct:18,note:"5 × $2,800 × 82% margin ≈ $11.5k profit."},
+        path:[["W1","Pick a lane","One niche + one offer. Example: AI intake for dental clinics, $2.8k/mo."],["W2","Proof","Do one unpaid or cheap install. Screenshot the before/after."],["W3–4","Outbound","40 targeted notes a day. Book 8 calls. Close 1."],["M2","Repeat","Same script. Don’t add services. Raise price after client 3."],["M3–6","Capacity","SOPs, a contractor, then stop taking the wrong clients."]],
+        honest:["This is a sales job wearing a laptop.","Churn kills you — send a weekly report.","$10k profit is 4–6 accounts, not 40."],
+        fail:["Vague offer (‘I do marketing’)","Building a website instead of sending emails","Underpricing at $800/mo"],
+        firstDollar:"A 2-week paid pilot at $1,500. Cash this month.",
+        why10k:"You sell time-boxed expertise. Price tracks the client’s cost of the problem, not your hours."},
+      {id:"productized",name:"Productized freelance",category:"Service",oneLiner:"One fixed-scope deliverable, one price, one timeline. No hourly, no custom quotes.",timeToCash:"1–3 weeks",monthsTo10k:"2–5 months",capitalLabel:"$0–300",marginPct:90,risk:"low",skills:["design","code","writing","ops"],hoursMin:15,capitalMin:0,sellNeed:"ok",speed:"fast",
+        unit:{offer:"Fixed package (site, brand, audit, automation)",price:3500,units:4,cogsPct:10,note:"4 packages a month at $3,500 with 10% tools ≈ $12.6k profit."},
+        path:[["W1","Name the package","7-day conversion landing page — $3,500. Scope in, scope out."],["W2","One-pager","Who it’s for, what’s included, 3 samples, a calendar link."],["W3","Warm network","20 people who already trust you. Then 30 cold-but-relevant."],["M2","Cadence","One slot per week. Waitlist beats discounting."],["M3+","Raise","After 8 deliveries, $4.5k. Add a $900/mo care plan."]],
+        honest:["You still have to sell.","Scope creep is the only way this dies.","Not passive until you hire."],
+        fail:["Custom work ‘just this once’","No samples","Taking 8 clients and shipping late"],
+        firstDollar:"Sell the first package to someone you already know this week.",
+        why10k:"Three to four $3.5k jobs beat twenty $400 gigs."},
+      {id:"ai-ops",name:"Vertical AI installs",category:"Service",oneLiner:"Install a working AI workflow for one industry. Setup fee plus a small retainer.",timeToCash:"2–5 weeks",monthsTo10k:"3–7 months",capitalLabel:"$200–1k",marginPct:78,risk:"medium",skills:["code","ops","sales"],hoursMin:15,capitalMin:200,sellNeed:"ok",speed:"fast",
+        unit:{offer:"Setup + monthly ops (one vertical)",price:4500,units:3,cogsPct:22,note:"Three setups, or mix setups with $900 retainers."},
+        path:[["W1","Pick the shop","Dentists, law firms, agencies, or HVAC — one."],["W2","Build the demo","A real intake → draft → human-approve loop."],["W3–4","Walk in","12-min call. Price the setup, not the hours."],["M2–3","Retain","Monitoring + weekly digest = $900/mo."],["M4+","Template","Same install, new logo."]],
+        honest:["Generic AI consulting is dead. Vertical or nothing.","You own the outcome.","API costs are COGS."],
+        fail:["ChatGPT wrappers with no workflow","Every industry","No retainer"],
+        firstDollar:"A $2k pilot that replaces one painful admin task.",
+        why10k:"Cheaper than a hire, faster than a software RFP."},
+      {id:"books",name:"Fractional books / ops",category:"Boring B2B",oneLiner:"Clean books, weekly numbers, and a human who answers. Sticky, unsexy, paid on time.",timeToCash:"3–6 weeks",monthsTo10k:"4–9 months",capitalLabel:"$0–400",marginPct:70,risk:"low",skills:["ops","none","sales"],hoursMin:15,capitalMin:0,sellNeed:"ok",speed:"medium",
+        unit:{offer:"Monthly bookkeeping + cash snapshot",price:1250,units:12,cogsPct:30,note:"12 clients × $1,250. A contractor at ~30% still leaves ~$10.5k."},
+        path:[["W1","Credential","QuickBooks/Xero fluency. One sample dashboard."],["W2–3","Niche","Trades, ecom, or agencies."],["W4","Referrals","Accountants and the first two clients’ group chats."],["M2–4","System","Onboarding checklist, close calendar."],["M5+","Leverage","Hire a bookkeeper. You keep the relationship."]],
+        honest:["This is a practice, not a startup. That’s why it works.","Don’t pretend to be a CPA if you aren’t.","You’ll be bored. Boredom is the moat."],
+        fail:["Missing close dates","Mixing personal and client files","Pricing at $200/mo"],
+        firstDollar:"One local business at $800/mo while you learn their stack.",
+        why10k:"Recurring, high switching cost, paid by people who already have revenue."},
+      {id:"digital",name:"Digital products",category:"Product",oneLiner:"Templates, kits, presets, Notion, Figma, code starters. 90%+ margin after the first sale.",timeToCash:"4–12 weeks",monthsTo10k:"6–18 months",capitalLabel:"$0–800",marginPct:92,risk:"medium",skills:["design","writing","code"],hoursMin:5,capitalMin:0,sellNeed:"hate",speed:"slow",
+        unit:{offer:"Paid template / kit",price:47,units:260,cogsPct:8,note:"260 sales at $47 after fees ≈ $11.2k. A $149 SKU needs fewer sales."},
+        path:[["W1–2","Audience pain","What do people already copy-paste?"],["W3–5","Ship v1","Ugly but complete. One hero product."],["W6","Distribution","One channel. Stay."],["M3","Proof","Reviews + a free mini that funnels to paid."],["M6+","Catalog","Two adjacent SKUs. Own the email list."]],
+        honest:["Without distribution this is a hobby.","$10k every month is a media company attached to files.","Own the email list."],
+        fail:["20 products, zero sales","No list","Racing to $9"],
+        firstDollar:"A $19 mini-product to 50 people who already follow you.",
+        why10k:"Once traffic exists, incremental cost of a sale is near zero."},
+      {id:"consulting",name:"High-ticket consulting",category:"Service",oneLiner:"Sell a diagnosis and a plan to people who already make money. One or two clients is enough.",timeToCash:"2–6 weeks",monthsTo10k:"1–4 months",capitalLabel:"$0–500",marginPct:95,risk:"medium",skills:["sales","ops","writing","code"],hoursMin:15,capitalMin:0,sellNeed:"like",speed:"fast",
+        unit:{offer:"Strategy engagement",price:8000,units:2,cogsPct:5,note:"Two $8k projects, or one $8k + a $4k/mo retainer."},
+        path:[["W1","Point of view","A 1,200-word essay on what’s broken in your niche."],["W2","Offer","4-week diagnostic, $8k, 3 workshops, a 12-page plan."],["W3–4","Warm + adjacent","Ex-colleagues, operators, podcast guests."],["M2","Case","Publish the anonymized plan."],["M3+","Productize","Same diagnostic, then a $3k/mo implementation seat."]],
+        honest:["You need a scar. If you have never done the thing, this is theater.","Feast/famine until retainers exist.","Short decks. Clear next step."],
+        fail:["Undercharging because ‘I’m not ready’","A novel nobody implements","No pipeline while in delivery"],
+        firstDollar:"An $8k diagnostic sold to someone who has seen your work.",
+        why10k:"Price tracks the size of the decision, not the hours in the calendar."},
+      {id:"saas",name:"Niche micro-SaaS",category:"Product",oneLiner:"A small paid tool for a job that spreadsheets fail. Recurring, slow, and worth it if it lands.",timeToCash:"3–9 months",monthsTo10k:"9–24 months",capitalLabel:"$500–5k",marginPct:80,risk:"high",skills:["code","design"],hoursMin:30,capitalMin:500,sellNeed:"ok",speed:"slow",
+        unit:{offer:"B2B seat / workspace",price:79,units:160,cogsPct:20,note:"160 × $79 × 80% ≈ $10.1k. Or 50 × $249."},
+        path:[["W1–2","Job to be done","Watch 10 people do the workaround."],["W3–8","Ugly v1","Stripe, login, the one workflow."],["M3","Design partners","10 teams on a founder-rate."],["M4–8","Channel","SEO for one query, or one community."],["M9+","Raise price","Stop lifetime deals."]],
+        honest:["Most micro-SaaS dies of no distribution.","Don’t quit a job until $8k MRR is boring.","Support will eat evenings."],
+        fail:["Building for everyone","Free forever","Feature race with a funded competitor"],
+        firstDollar:"A $49/mo design-partner invoice before the landing page exists.",
+        why10k:"Recurring revenue compounds. 160 small teams is still solo-able."},
+      {id:"newsletter",name:"Paid newsletter / brief",category:"Media",oneLiner:"A weekly brief a specific buyer forwards at work. Sponsorships, paid tier, or both.",timeToCash:"3–8 months",monthsTo10k:"12–24 months",capitalLabel:"$0–300",marginPct:88,risk:"medium",skills:["writing","ops"],hoursMin:5,capitalMin:0,sellNeed:"hate",speed:"slow",
+        unit:{offer:"Paid subs + 2 sponsors",price:12,units:500,cogsPct:12,note:"500 × $12 = $6k plus two $2.5k sponsors."},
+        path:[["W1","Who forwards this?","Name the job title."],["W2–12","Free streak","12 consecutive weeks. Same day, same length."],["M4","List","1,000 true fans beats 20k ghosts."],["M6","Paid or sponsors","Don’t wait for 50k subs."],["M12","Product","A $199 briefing or a workshop. The list is the asset."]],
+        honest:["This is a media company. Miss a week and the habit dies.","10k engaged, niched subs — not 10k ghosts.","Your taste is the product."],
+        fail:["Inconsistent cadence","Broad topic, no buyer","No email capture"],
+        firstDollar:"A $1k sponsor at 1,500 niche subs, or 80 paid at $12.",
+        why10k:"Attention in a niche is rentable."},
+      {id:"ecom",name:"Private-label e-com",category:"Commerce",oneLiner:"A branded physical product with paid traffic. $10k profit is a $40–80k revenue problem.",timeToCash:"2–5 months",monthsTo10k:"6–18 months",capitalLabel:"$5k–30k",marginPct:22,risk:"high",skills:["ops","sales","design"],hoursMin:30,capitalMin:5000,sellNeed:"ok",speed:"medium",
+        unit:{offer:"Branded SKU via Shopify + ads",price:48,units:1200,cogsPct:78,note:"1,200 orders × $48 = $57.6k revenue. After COGS+ads ~$12.7k. This is the honest version."},
+        path:[["W1–2","Margin first","Landed cost must allow 3× markup after ads."],["W3–6","Supply","Samples, branding, 3PL. Don’t buy 5,000 of v1."],["M2","Creative","UGC-style ads. Daily tests."],["M3–4","Unit economics","Contribution margin or death."],["M6+","Repeat","Email/SMS, a bundle, a second SKU."]],
+        honest:["Influencers skip the ad spend. You will not.","Contribution margin after ads is the only number.","Needs capital. $500 is how people get stuck with inventory."],
+        fail:["Dropshipping 400 identical stores","Scaling ads on a 5% margin","No brand"],
+        firstDollar:"50 friends-and-family orders to prove fulfillment, then ads.",
+        why10k:"Only if you own a product people repurchase and can buy traffic profitably."},
+      {id:"cohort",name:"Cohort course",category:"Education",oneLiner:"A live 4–6 week program with a clear outcome. Eight students at $1,500 is a $10k+ month.",timeToCash:"6–14 weeks",monthsTo10k:"4–10 months",capitalLabel:"$200–2k",marginPct:85,risk:"medium",skills:["writing","sales","ops"],hoursMin:15,capitalMin:200,sellNeed:"ok",speed:"medium",
+        unit:{offer:"Live cohort seat",price:1500,units:8,cogsPct:15,note:"8 × $1,500. Zoom + a TA ~15%."},
+        path:[["W1–2","Outcome","Ship X in 5 weeks. If you can’t name X, you don’t have a course."],["W3–4","Teach live first","A $99 workshop."],["W5–8","Waitlist","Application, not buy-now. 30 conversations. Close 8."],["M3","Run v1","Over-deliver. Testimonials with numbers."],["M4+","Repeat","Same dates every month."]],
+        honest:["A course with no audience is a Google Doc.","Completion rates are the reputation.","Don’t record 40 hours before a student has paid."],
+        fail:["Building the LMS for 3 months","A 12-week slog","Copying a guru curriculum you haven’t lived"],
+        firstDollar:"A $99 live workshop this month. The cohort is v2.",
+        why10k:"High ticket × small room. You need 8 who finish, not 10,000 who click."}
+    ];
+
+    const sellRank = { hate:0, ok:1, like:2 };
+    const speedFit = { "30d":["fast"], "90d":["fast","medium"], "12m":["fast","medium","slow"] };
+
+    function rank() {
+      const hours = HOURS[profile.hours], capital = CAP[profile.capital];
+      return IDEAS.map(idea => {
+        let score = 55; const reasons=[], blockers=[];
+        if (idea.skills.includes(profile.skill) || (profile.skill==="none" && idea.skills.includes("none"))) { score += 18; reasons.push("Matches how you already work"); }
+        else if (profile.skill==="none" && idea.category==="Service") { score += 8; reasons.push("Services forgive a missing specialty"); }
+        else score -= 6;
+        if (hours >= idea.hoursMin) { score += 12; reasons.push("Hours cover the floor"); }
+        else { score -= 16; blockers.push("Needs ~"+idea.hoursMin+"h/week; you have "+hours); }
+        if (capital >= idea.capitalMin) score += 10;
+        else { score -= 22; blockers.push("Needs ~$"+idea.capitalMin.toLocaleString()+" to start honestly"); }
+        if (sellRank[profile.sell] >= sellRank[idea.sellNeed]) score += 10;
+        else { score -= 14; blockers.push("Requires more selling than you want"); }
+        if (speedFit[profile.timeline].includes(idea.speed)) { score += 12; if (profile.timeline==="30d" && idea.speed==="fast") reasons.push("Can produce cash this month"); }
+        else { score -= 18; blockers.push("Too slow for your cash need"); }
+        if (idea.risk==="low") score += 4;
+        if (idea.risk==="high" && profile.timeline==="30d") score -= 8;
+        score = Math.max(8, Math.min(99, score));
+        return { ...idea, score, reasons, blockers };
+      }).sort((a,b)=>b.score-a.score);
+    }
+
+    function profit(u, price, units, cogs) {
+      const revenue = price * units;
+      const cost = revenue * (cogs/100);
+      return { revenue, cost, profit: revenue - cost };
+    }
+
+    function renderControls() {
+      const labels = { hours:"Hours", capital:"Capital", skill:"Strongest skill", sell:"Selling", timeline:"When you need cash" };
+      document.getElementById("controls").innerHTML = Object.keys(OPTIONS).map(key => `
+        <fieldset>
+          <legend>${labels[key]}</legend>
+          <div class="chips">
+            ${OPTIONS[key].map(([id,l,s]) => `
+              <button class="chip ${profile[key]===id?"on":""}" data-k="${key}" data-v="${id}">
+                <b>${l}</b><i>${s}</i>
+              </button>`).join("")}
+          </div>
+        </fieldset>`).join("");
+    }
+
+    function renderGrid() {
+      const ranked = rank();
+      document.getElementById("best").textContent = "Best fit: " + ranked[0].name + " · score " + ranked[0].score;
+      document.getElementById("grid").innerHTML = ranked.map((idea,i) => `
+        <article class="card idea">
+          <div class="meta">#${String(i+1).padStart(2,"0")} · ${idea.category} · ${idea.risk} risk</div>
+          <h3>${idea.name}</h3>
+          <p>${idea.oneLiner}</p>
+          <div class="stats">
+            <div><span>First cash</span>${idea.timeToCash}</div>
+            <div><span>To $10k</span>${idea.monthsTo10k}</div>
+            <div><span>Margin</span>${idea.marginPct}%</div>
+          </div>
+          <div class="bar"><i><b style="width:${idea.score}%"></b></i><em>${idea.score}</em></div>
+          ${idea.blockers[0] ? `<div class="warn">${idea.blockers[0]}</div>` : `<div class="warn" style="color:var(--muted)">${idea.reasons[0]||""}</div>`}
+          <button class="open" data-open="${idea.id}">Open the math</button>
+        </article>`).join("");
+    }
+
+    function openIdea(id) {
+      const idea = IDEAS.find(x => x.id === id);
+      const dlg = document.getElementById("dlg");
+      const u = idea.unit;
+      dlg.innerHTML = `
+        <div class="dlg">
+          <button class="close" id="x">Close</button>
+          <div class="k">${idea.category} · ${idea.risk} risk · ${idea.capitalLabel} to start</div>
+          <h2>${idea.name}</h2>
+          <p class="lede">${idea.oneLiner}</p>
+          <p class="sub" style="margin-top:10px">${idea.why10k}</p>
+          <div class="row">
+            <div>
+              <h3 style="margin-top:8px">90-day path</h3>
+              <ol>${idea.path.map(s => `<li><div class="w">${s[0]}</div><div><b>${s[1]}</b><p class="sub">${s[2]}</p></div></li>`).join("")}</ol>
+              <div class="card" style="margin-top:14px;background:rgba(198,242,90,.1);color:var(--primary)">First dollar — ${idea.firstDollar}</div>
+              <h3 style="margin-top:18px">Honest</h3>
+              <ul class="honest">${idea.honest.map(x => `<li>${x}</li>`).join("")}</ul>
+              <h3 style="margin-top:14px">How this dies</h3>
+              <ul class="honest">${idea.fail.map(x => `<li>${x}</li>`).join("")}</ul>
+            </div>
+            <div class="math">
+              <h3>Unit economics</h3>
+              <p class="sub">${u.offer}</p>
+              <p class="sub">${u.note}</p>
+              <label class="sl"><div class="t"><span>PRICE</span><span id="pv">$${u.price.toLocaleString()}</span></div>
+                <input id="price" type="range" min="${Math.max(1,Math.round(u.price*0.25))}" max="${Math.round(u.price*3)}" value="${u.price}"></label>
+              <label class="sl"><div class="t"><span>UNITS / MONTH</span><span id="uv">${u.units}</span></div>
+                <input id="units" type="range" min="1" max="${Math.max(12,u.units*3)}" value="${u.units}"></label>
+              <label class="sl"><div class="t"><span>COGS + FEES</span><span id="cv">${u.cogsPct}%</span></div>
+                <input id="cogs" type="range" min="0" max="90" value="${u.cogsPct}"></label>
+              <div class="nums">
+                <div><div class="k">Revenue</div><div id="rev"></div></div>
+                <div><div class="k">Costs</div><div id="cost"></div></div>
+                <div id="hit"><div class="k">Profit</div><div id="pro"></div></div>
+              </div>
+              <p class="sub" id="msg" style="margin-top:10px"></p>
+            </div>
+          </div>
+        </div>`;
+      const recalc = () => {
+        const price = +document.getElementById("price").value;
+        const units = +document.getElementById("units").value;
+        const cogs = +document.getElementById("cogs").value;
+        document.getElementById("pv").textContent = "$"+price.toLocaleString();
+        document.getElementById("uv").textContent = units;
+        document.getElementById("cv").textContent = cogs+"%";
+        const m = profit(u, price, units, cogs);
+        document.getElementById("rev").textContent = "$"+Math.round(m.revenue).toLocaleString();
+        document.getElementById("cost").textContent = "$"+Math.round(m.cost).toLocaleString();
+        document.getElementById("pro").textContent = "$"+Math.round(m.profit).toLocaleString();
+        const hit = m.profit >= 10000;
+        document.getElementById("hit").className = hit ? "hit" : "";
+        document.getElementById("msg").textContent = hit
+          ? "Clears $10k monthly profit on these assumptions."
+          : "Short by $"+Math.round(10000-m.profit).toLocaleString()+". Raise price, add units, or cut COGS.";
+        document.getElementById("msg").style.color = hit ? "var(--primary)" : "var(--copper)";
+      };
+      dlg.querySelectorAll("input").forEach(el => el.addEventListener("input", recalc));
+      document.getElementById("x").onclick = () => dlg.close();
+      recalc();
+      dlg.showModal();
+    }
+
+    document.getElementById("controls").addEventListener("click", e => {
+      const b = e.target.closest("[data-k]");
+      if (!b) return;
+      profile[b.dataset.k] = b.dataset.v;
+      renderControls(); renderGrid();
+    });
+    document.getElementById("grid").addEventListener("click", e => {
+      const b = e.target.closest("[data-open]");
+      if (b) openIdea(b.dataset.open);
+    });
+    renderControls(); renderGrid();
+  </script>
+</body>
+</html>
