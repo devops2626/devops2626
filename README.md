@@ -3,7 +3,7 @@
 
 I don't have a laptop.  
 I have an iPhone, iSH, and GitHub Actions.
-
+https://devops2626.github.io/devops2626/
 This is my lab.
 
 ### Live now
